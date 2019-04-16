@@ -1,0 +1,107 @@
+
+<br>
+<div class= "ui grid">
+
+
+ <div class="two column row">
+<div class="column">
+  <h1> Find top instagram influencers for your business</h1>
+  <h2>Influenstagram is a community that helps you find the best instagram influencers to grow your business or brand.</h2>
+
+  <center><%= link_to "Get Started" ,new_user_registration_path ,class: "ui large primary button" %></center>
+  </div>
+
+
+  <div class="column">
+    <div align="right">
+
+
+
+    <%= image_tag "insta2.jpg" , size: "500x300" %>
+      </div>
+    </div>
+
+</div>
+    </div>
+
+
+
+
+<br>
+<br >
+
+<center><h1>Recently Added Influencers <i class="bullhorn icon"></i> </h1></center><br>
+
+
+ <div class="ui grid">
+   <% @posts.each do |post| %>
+ <div class="four wide column">
+
+
+
+  <div class="ui card">
+
+
+<div class="image"><center><%= link_to (image_tag LinkThumbnailer.generate(post.url).images.first, image_stats: false), post_path(post), class: "ui tiny circular centered image"  %>  </center></div>
+
+
+<div class="content">
+
+<a class="header"><center><%= link_to post.instagram_username, post_path(post) %></center></a>
+
+
+<center>
+
+
+<% if post.reviews.empty? %>
+ <p><div class="average-review-rating" data-score=
+
+  <%= post.average_review %>></div> <p>
+ No Reviews Yet
+
+<% else %>
+
+
+
+       <p><div class="average-review-rating" data-score=<%= post.average_review %>></div> <p>
+       <span class="number-of-reviews">Based on  <%= post.reviews.count%>&nbsp;<%= "Review".pluralize(post.reviews.count) %>  </span>
+
+<% end %></center>
+
+<div class="extra content"><%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t),class: "ui primary basic mini button" }.join %></div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </div>
+<% end %>
+</div>
+
+
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>

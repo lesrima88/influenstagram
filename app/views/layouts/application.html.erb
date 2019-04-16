@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Influensta</title>
+    <%= csrf_meta_tags %>
+    <%# csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+            <div class="ui white small inverted menu fixed">
+              <div class="ui container">
+
+
+
+
+          <h3><%= link_to '𝐼𝓃𝒻𝓁𝓊𝑒𝓈𝓉𝒶𝑔𝓇𝒶𝓂', root_path ,class: "item"  %></h3>
+
+
+
+
+
+
+          <div class="right menu">
+            <div class="item">
+
+
+            <div class="ui category search">
+                  <%= form_tag(search_page_path, :method => "get",
+            class: 'four wide field') do %>
+
+
+
+          <div class="ui action input">
+            <%= search_field_tag :search, params[:search], placeholder: "Search username....",class: "ui input "  %>
+
+              <%= button_tag "", class:'ui blue button' do %>
+
+
+              <i class="search icon"></i>
+
+              <% end %>
+
+
+
+          </div>
+
+
+
+
+
+        <% end %>
+        </div>
+        </div>
+        </div>
+          <% if user_signed_in? %>
+          <div class="item">
+
+
+          <%= link_to new_post_path, class: "ui inverted button" do %>
+          <i class="inverted blue instagram icon"></i> List An Influencer
+          <% end %>
+           </div>
+          <% end %>
+
+
+
+         <% if user_signed_in? %>
+            <div class="ui dropdown item">
+              <button class="ui primary button">
+
+
+                Hello <i><%= current_user.username %></i> , Account <i class="dropdown icon"></i>
+            </button>
+              <div class="menu">
+
+              <%= link_to "Account Settings", edit_user_registration_path(@user), class: "item" %>
+              <%= link_to "Send Feedback", new_contact_path, class: "item" %>
+
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "item" %>
+
+
+              </div>
+
+              <% else %>
+            <div class="item">
+          <%= link_to new_post_path, class: "ui inverted button" do %>
+          <i class="inverted blue instagram icon"></i> List An Influencer
+          <% end %>
+
+          </div>
+
+              <div class="item">
+            <%= link_to "Log in", user_session_path, class: "ui inverted button" %>
+            <%# link_to "Contact Us", user_session_path, class: "ui inverted button" %>
+
+
+            <div class="item">
+            <%= link_to "Sign Up", new_user_registration_path , class: "ui primary button" %>
+
+            <% end %>
+          </div>
+
+
+
+
+          </div>
+            </div>
+
+
+
+
+
+            </div>
+
+        <div class="ui container">
+          <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<style type="text/css">
+  .alert-success{
+    color: green;
+  }
+  .alert-danger{
+    color: red;
+  }
+</style>
+    <%= yield %>
+ </div>
+</body>
+</html>
+
+<script>
+$(document).on('turbolinks:load', function(){
+    $(".alert").delay(2000).slideUp(500, function(){
+          $(".alert").alert('close');
+      });
+    });
+</script>
+
+
+<script>
+$(document).on('turbolinks:load', function(){
+    $(".alert").delay(2000).slideUp(500, function(){
+          $(".notice").alert('close');
+      });
+    });
+</script>
+
+
+<script>
+  $(document).on('turbolinks:load', function () {
+    $('#post_tag_ids').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    })
+  });
+</script>

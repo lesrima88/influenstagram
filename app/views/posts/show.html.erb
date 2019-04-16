@@ -1,0 +1,98 @@
+<br >
+
+<div class="ui center aligned segment">
+<center>
+
+<h1 class="ui header"><%= @post.instagram_username %></h1>
+
+
+
+
+
+
+
+
+<%= link_to (image_tag LinkThumbnailer.generate(@post.url).images.first.src.to_s, image_stats: false),"#{@post.url}", class: "ui centered tiny circular image"  %>
+
+
+<h3><p>
+
+<%= @post.description %></p></h3>
+
+<p><small><%= raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t), class: "ui primary basic mini button" }.join %></small</p>
+
+
+
+<p><%= link_to "Visit Profile", "#{@post.url}" , class: "ui secondary button" %></p>
+
+
+
+
+<% if @post.reviews.empty? %>
+
+
+<p><H4>No reviews have been added yet</H4> <%= link_to 'Leave A Review',  new_post_review_path(@post), class: "ui inverted tiny primary button"  %> </p>
+<% else %>
+
+<h4>Influencer Rating <span class="number-of-reviews"><i>Based on <%= @post.reviews.count%>&nbsp;<%= "Review".pluralize(@post.reviews.count) %> </span></i></h4>
+<div class="average-review-rating" data-score=<%= @average_review %>></div>
+<div>
+  <%= link_to "Add Your Review", new_post_review_path(@post) , class: 'ui inverted primary button'%>
+</div>
+</div>
+<div class="ui center aligned segment">
+<center>
+<h1>Reviews</h1>
+<div class="ui feed">
+<%= render @post.reviews %>
+
+
+</div>
+
+
+<% end %>
+
+
+
+
+
+<% if user_signed_in? %>
+
+
+<% if @post.user_id == current_user.id || current_user.admin? %>
+
+
+
+<%= link_to "edit", edit_post_path(@post),  class: "ui mini blue basic button" %>
+<%= link_to "delete", post_path(@post), method: :delete, data: { confirm: "Are you sure to permanently delete this post?" }, class: "ui mini red basic button" %>
+
+ <% end %>
+
+
+ <% end %>
+ <br >
+ Share:<%= social_share_button_tag(@post.title) %>
+</center>
+
+</div>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

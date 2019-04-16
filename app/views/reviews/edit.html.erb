@@ -1,0 +1,28 @@
+<h1> Edit Review</h1>
+<div class="ui segment">
+
+
+<div class="ui form">
+<%= simple_form_for([@post, @review]) do |f| %>
+<div id="rating-form">
+  <label>Rating</label>
+  </div>
+  <div class="field">
+    <%= f.input :comment, maxlength:1000, size:30 %>
+    </div>
+
+    <div class= "submit">
+
+
+<%= f.button :submit, class: "ui orange button" %>
+</div>
+<% end %>
+</div>
+</div>
+
+<script>
+	$('#rating-form').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>

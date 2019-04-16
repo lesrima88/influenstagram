@@ -1,0 +1,26 @@
+<div class="content">
+   <div class="summary">
+
+
+
+
+<%= gravatar_image_tag review.user.email, class: "ui avatar image" %>
+
+<p> Posted by <%= review.user.username %> </p>
+<div class="review-rating" data-score="<%= review.rating %>"></div>
+<p><%= review.comment %></p>
+</div>
+</div>
+
+
+<% if user_signed_in? %>
+
+<% if review.user_id == current_user.id %>
+
+<%= link_to "Edit", edit_post_review_path(review.post, review) %>
+<%= link_to "Delete", post_review_path(review.post, review),method: :delete, data: { confirm: "Are you sure you want to permanently delete your review?"} %>
+
+
+<% end %>
+<hr >
+<% end %>

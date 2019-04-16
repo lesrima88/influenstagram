@@ -1,0 +1,92 @@
+<h1>Search Results</h1>
+
+
+<%# @results.each do |result| %>
+       <%# result.instagram_username %><br>
+       <%# link_to result.instagram_username, post_path(result) %>
+   <%# end %>
+
+
+    <div class="ui grid">
+
+
+
+
+
+      <% @results.each do |result| %>
+
+
+    <div class="four wide column">
+
+
+
+     <div class="ui card">
+
+   <div class="image"><center><%= link_to (image_tag LinkThumbnailer.generate(result.url).images.first, image_stats: false), post_path(result), class: "ui tiny circular centered image"  %>  </center></div>
+
+
+   <div class="content">
+
+   <a class="header"><center><%= link_to result.instagram_username, post_path(result) %></center></a>
+
+
+   <center>
+
+
+   <% if result.reviews.empty? %>
+    <p><div class="average-review-rating" data-score=
+
+     <%= result.average_review %>></div> <p>
+    No Reviews Yet
+
+   <% else %>
+
+
+
+          <p><div class="average-review-rating" data-score=<%= result.average_review %>></div> <p>
+          <span class="number-of-reviews">Based on  <%= result.reviews.count%>&nbsp;<%= "Review".pluralize(result.reviews.count) %>  </span>
+
+   <% end %></center>
+
+   <div class="extra content"><%= raw result.tags.map(&:name).map { |t| link_to t, tag_path(t),class: "ui primary basic mini button" }.join %></div>
+
+   </div>
+
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+  <% end.empty? and begin %>
+  <center>
+
+  <h3>No results found</h3></div>
+   <% end %>
+   </center>
+
+
+
+
+   <script>
+     $('.average-review-rating').raty({
+       readOnly: true,
+       path: '/assets/',
+       score: function() {
+         return $(this).attr('data-score')
+       }
+     });
+   </script>

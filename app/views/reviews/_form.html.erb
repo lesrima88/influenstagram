@@ -1,0 +1,70 @@
+<br>
+<br>
+<br>
+<br>
+
+<div class="ui segment">
+<div class="ui form">
+
+
+<%= simple_form_for([@post, @post.reviews.build]) do |f| %>
+
+
+<div id="rating-form">
+  <label>Rating</label>
+  </div>
+
+  <div class="field">
+<%= f.input :comment,placeholder:"Tell us your expirience with this influencer, what did you like or dislike?",maxlength: @maximum_length, id: 'comment'  %>
+
+</div>
+<center>
+
+
+<%= f.button :submit,  class: "ui orange button" %>
+</center>
+<% end %>
+
+
+</div>
+</div>
+
+<script>
+  $(document).on('turbolinks:load',function() {
+
+
+         var val = $('#rating-form').val();
+         if(val == ''){
+            $('input[type=submit]').attr('disabled', true)
+         }
+    });
+</script>
+
+<script>
+	$('#rating-form').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+
+
+
+	});
+
+
+ $('input[name="#rating-form"]').attr('required', true);
+
+</script>
+
+
+
+<script>
+    $(document).on('turbolinks:load',function() {
+      var comment = $("#comment");
+      var counter     = $("#counter");
+      var max_length  = counter.data("maximum-length");
+
+      comment.keyup(function() {
+          counter.text(max_length - $(this).val().length);
+      });
+
+    });
+</script>
