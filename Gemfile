@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
 gem 'gravatar_image_tag'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3','~> 1.3.13'
+
 gem 'nokogiri'
 gem 'puma', '~> 3.7'
 gem 'simple_form'
@@ -63,6 +63,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'sqlite3','~> 1.3.13'
 end
 
 group :development do
@@ -73,6 +74,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+group :production do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'pg' , '~> 0.20'
+  gem 'rails_12factor'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
