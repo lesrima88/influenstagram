@@ -34,7 +34,7 @@ source 'https://rails-assets.org' do
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+#gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'link_thumbnailer'
 
 # Use CoffeeScript for .coffee assets and views
