@@ -11,7 +11,6 @@ gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
 gem 'gravatar_image_tag'
 # Use sqlite3 as the database for Active Record
 
-gem 'nokogiri'
 gem 'puma', '~> 3.7'
 gem 'simple_form'
 gem 'mail_form'
