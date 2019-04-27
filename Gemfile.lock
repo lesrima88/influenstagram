@@ -239,7 +239,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara (~> 2.13)
-  devise!
+  devise (= 4.5.0)!
   friendly_id (~> 5.2.4)
   google-analytics-rails (= 1.1.0)
   gravatar_image_tag
