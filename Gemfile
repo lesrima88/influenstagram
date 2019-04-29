@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
 gem 'gravatar_image_tag'
 # Use sqlite3 as the database for Active Record
-
+gem 'devise', '=4.5.0'
 gem 'puma', '~> 3.7'
 gem 'simple_form'
 gem 'mail_form'
@@ -15,6 +15,7 @@ gem 'semantic-ui-sass'
 gem 'hirb', '~> 0.7.3'
 gem 'friendly_id', '~> 5.2.4'
 gem 'social-share-button'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -34,7 +35,7 @@ gem 'link_thumbnailer'
 
 # Use CoffeeScript for .coffee assets and views
 #gem 'coffee-rails', '~> 4.2'
-gem 'devise'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
