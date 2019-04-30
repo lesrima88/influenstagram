@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
+gem 'rails'
+
 gem 'gravatar_image_tag'
 # Use sqlite3 as the database for Active Record
 gem 'devise', '=4.5.0'
@@ -20,6 +21,7 @@ gem 'social-share-button'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
+gem 'turbolinks'
 gem 'jquery-turbolinks'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
@@ -37,7 +39,7 @@ gem 'link_thumbnailer'
 #gem 'coffee-rails', '~> 4.2'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 # Use Redis adapter to run Action Cable in production
