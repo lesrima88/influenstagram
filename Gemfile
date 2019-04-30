@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
 
 gem 'gravatar_image_tag'
 # Use sqlite3 as the database for Active Record
@@ -66,6 +66,14 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -73,11 +81,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'better_errors', '~> 2.4'
-  gem 'guard', '~> 2.14', '>= 2.14.1'
-  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
-
 group :production do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'pg' , '~> 0.20'
