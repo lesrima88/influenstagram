@@ -247,7 +247,7 @@ DEPENDENCIES
   hirb (~> 0.7.3)
   jquery-rails
   jquery-turbolinks
-  link_thumbnailer (= 3.3.2)!
+  link_thumbnailer!
   listen (~> 3.0)
   mail_form
   pg (~> 0.20)
