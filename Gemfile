@@ -60,6 +60,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3','~> 1.3.13'
+  gem 'listen', '~> 3.0' # NOTE: for TCP functionality, use '~> 2.10' for now
 end
 
 #group :development do
