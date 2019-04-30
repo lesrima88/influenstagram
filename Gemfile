@@ -23,6 +23,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'link_thumbnailer'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
   # add the line below
@@ -33,7 +34,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 #gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'link_thumbnailer'
+
 
 # Use CoffeeScript for .coffee assets and views
 #gem 'coffee-rails', '~> 4.2'
