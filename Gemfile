@@ -37,7 +37,7 @@ gem 'link_thumbnailer'
 #gem 'coffee-rails', '~> 4.2'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 # Use Redis adapter to run Action Cable in production
@@ -59,24 +59,20 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'sqlite3','~> 1.3.13'
-  gem 'listen', '~> 3.0' # NOTE: for TCP functionality, use '~> 2.10' for now
 end
 
-#group :development do
+group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-#  gem 'web-console', '>= 3.3.0'
-#  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-#  gem 'spring'
-#  gem 'spring-watcher-listen', '~> 2.0.0'
-#end
-
-group :production do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'pg' , '~> 0.20'
-  gem 'rails_12factor'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors', '~> 2.4'
+  gem 'guard', '~> 2.14', '>= 2.14.1'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
+
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
