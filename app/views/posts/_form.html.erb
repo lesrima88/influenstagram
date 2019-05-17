@@ -30,7 +30,7 @@
    <div class="six wide field">
      <label>Copy and Paste Instagram Profile URL*(required)</label>
     <%= f.text_field :url, as: :url, required: true, label: false %>
-    <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}  %>
+    <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}, label: "Select Category:", placeholder: "Click to select" %>
   </div>
 
 
