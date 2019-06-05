@@ -11,8 +11,8 @@ class Post < ApplicationRecord
 
   validates_format_of :url, :with => URI::regexp(%w(http https))
   has_many :taggings
-has_many :tags, through: :taggings
-
+  has_many :tags, through: :taggings
+  letsrate_rateable "engagement", "response", "price"
 
 def average_review
  if reviews.blank?

@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-
+ruby '2.6.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
+gem 'rails', '~> 5.2.0'
 
 gem 'gravatar_image_tag'
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active
 gem 'devise', '=4.5.0'
 gem 'puma', '~> 3.7'
 gem 'simple_form'
@@ -17,6 +17,8 @@ gem 'hirb', '~> 0.7.3'
 gem 'friendly_id', '~> 5.2.4'
 gem 'social-share-button'
 gem 'ahoy_matey'
+gem 'letsrate'
+
 
 
 # Use SCSS for stylesheets
@@ -67,13 +69,13 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :development, :test do
+#group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+#  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-end
+#  gem 'capybara', '~> 2.13'
+#  gem 'selenium-webdriver'
+#end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
