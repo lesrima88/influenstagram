@@ -3,16 +3,16 @@ class Post < ApplicationRecord
   extend FriendlyId
 
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :delete_all
   friendly_id :instagram_username, use: :slugged
   validates_presence_of :instagram_username, :url
   validates :instagram_username, :uniqueness => true
   validates :url, :uniqueness => true
 
   validates_format_of :url, :with => URI::regexp(%w(http https))
-  has_many :taggings
-  has_many :tags, through: :taggings
-  letsrate_rateable "engagement", "response", "price"
+  has_many :taggings, dependent: :delete_all
+  has_many :tags, through: :taggings, dependent: :delete_all
+
 
 def average_review
  if reviews.blank?
