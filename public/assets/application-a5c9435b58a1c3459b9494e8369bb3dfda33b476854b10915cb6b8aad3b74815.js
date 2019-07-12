@@ -12932,7 +12932,7 @@ Copyright (c) 2012-2013 Sasha Koss & Rico Sta. Cruz
       return true;
     };
 
-    AbstractChosen.default_multiple_text = "Select Some Options";
+    AbstractChosen.default_multiple_text = "Click to select";
 
     AbstractChosen.default_single_text = "Select an Option";
 

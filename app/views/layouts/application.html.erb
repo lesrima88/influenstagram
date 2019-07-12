@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= javascript_include_tag "https://cdn.jsdelivr.net/jquery.glide/1.0.6/jquery.glide.min.js" %>
 
 <% if Rails.env.production? %>
      <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,10 +35,9 @@
 
 
 
-
-
-
           <div class="right menu">
+
+
             <div class="item">
 
 
@@ -69,6 +69,11 @@
         </div>
         </div>
         </div>
+        <div class="item">
+
+        <%= link_to "Send Feedback", new_contact_path %>
+        </div>
+
           <% if user_signed_in? %>
           <div class="item">
 
@@ -90,10 +95,15 @@
             </button>
               <div class="menu">
 
+                <% if current_user.admin? %>
+
+               <%= link_to "New Blog post", new_blog_path, class: "item" %><% end %>
+
               <%= link_to "Account Settings", edit_user_registration_path(@user), class: "item" %>
               <%= link_to "Send Feedback", new_contact_path, class: "item" %>
 
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "item" %>
+
 
 
               </div>
@@ -105,22 +115,36 @@
           <% end %>
 
           </div>
+          <% if user_signed_in? %>
+         <% if current_user.admin? %>
+          <div class="item">
+        <%= link_to new_blog_path, class: "ui inverted button" do %>
+        <i class="inverted blue book icon"></i> New Blog Post
+        <% end %>
+
+        </div>
+        <% end %>
+        <% end %>
 
               <div class="item">
             <%= link_to "Log in", user_session_path, class: "ui inverted button" %>
-            <%# link_to "Contact Us", user_session_path, class: "ui inverted button" %>
+
 
 
             <div class="item">
             <%= link_to "Sign Up", new_user_registration_path , class: "ui primary button" %>
 
+
+
             <% end %>
-          </div>
-
-
 
 
           </div>
+
+
+
+          </div>
+
             </div>
 
 
@@ -149,6 +173,16 @@
  </div>
 </body>
 </html>
+
+
+<script>
+$(document).on('turbolinks:load', function(){
+  $('.ui.dropdown')
+  .dropdown()
+;
+})
+
+</script>
 
 <script>
 $(document).on('turbolinks:load', function(){

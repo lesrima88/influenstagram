@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
+  resources :blogs
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   devise_for :models
-
-resources :users
-resources :contacts, only: [:new, :create]
+  #devise_for :users, controllers: { confirmations: 'confirmations' }
 
 
-resources :posts do
+  resources :users
+  resources :contacts, only: [:new, :create]
+
+
+  resources :posts do
   resources :reviews
 end
 
-resources  :users do
- resources :posts, only: [:index]
+  resources  :users do
+    resources :posts, only: [:index]
 end
 
 get 'users/:id/user_posts' => 'users#user_posts', :as => :custom_user_posts

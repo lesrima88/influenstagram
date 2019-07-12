@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :posts
   has_many :reviews
+  devise :registerable, :confirmable
 
   #has_many :visits, class_name: “Ahoy::Visit”
   devise :database_authenticatable, :registerable,
