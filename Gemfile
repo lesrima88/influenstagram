@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.0'
 gem 'gravatar_image_tag'
 # Use sqlite3 as the database for Active
 gem 'devise', '=4.5.0'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 gem 'simple_form'
 gem 'mail_form'
 gem 'google-analytics-rails', '1.1.0'
